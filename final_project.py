@@ -214,8 +214,6 @@ evaluate_model("Random Forest", y_test, rf_pred)
 Part 5
 """
 
-pip install streamlit plotly pandas
-
 import streamlit as st
 import pandas as pd
 import plotly.express as px
