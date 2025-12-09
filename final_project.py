@@ -12,7 +12,7 @@ Dataset Load
 import urllib.request, os, time
 import pandas as pd
 import numpy as np
-import matplotlib.pyplot as plt
+
 
 url = "https://storage.googleapis.com/info_450/IndividualAssistanceHousingRegistrantsLargeDisasters%20(1).csv"
 filename = "fema_disaster_data.csv"
@@ -55,45 +55,44 @@ avg_repair.head(10)
 
 tsa_rate = data.groupby("damagedStateAbbreviation")['tsaEligible'].mean()
 
-plt.figure(figsize=(12,6))
+#plt.figure(figsize=(12,6))
 tsa_rate.sort_values().plot(kind='bar')
-plt.title("TSA Eligibility Rate by State")
-plt.xlabel("State")
-plt.ylabel("Eligibility Rate (%)")
-plt.tight_layout()
-plt.show()
+#plt.title("TSA Eligibility Rate by State")
+#plt.xlabel("State")
+#plt.ylabel("Eligibility Rate (%)")
+#plt.tight_layout()
+#plt.show()
 
 """Histogram"""
 
-plt.figure(figsize=(10,5))
-plt.hist(data['repairAmount'].dropna(), bins=40)
-plt.title("Distribution of Repair Amount")
-plt.xlabel("Repair Amount ($)")
-plt.ylabel("Frequency")
-plt.show()
+#plt.figure(figsize=(10,5))
+#plt.hist(data['repairAmount'].dropna(), bins=40)
+#plt.xlabel("Repair Amount ($)")
+#plt.ylabel("Frequency")
+#plt.show()
 
 """Boxplot"""
 
-plt.figure(figsize=(12,6))
+#plt.figure(figsize=(12,6))
 data.boxplot(column='repairAmount', by='residenceType', rot=45)
-plt.title("Repair Amount by Residence Type")
-plt.suptitle("")  # removes default title
-plt.xlabel("Residence Type")
-plt.ylabel("Repair Amount ($)")
-plt.show()
+#plt.title("Repair Amount by Residence Type")
+#plt.suptitle("")  # removes default title
+#plt.xlabel("Residence Type")
+#plt.ylabel("Repair Amount ($)")
+#plt.show()
 
 """Analyst choice(need to be done)"""
 
 income_tsa_rate = data.groupby("grossIncome")["tsaEligible"].mean().sort_values()
 
-plt.figure(figsize=(10,5))
+#plt.figure(figsize=(10,5))
 income_tsa_rate.plot(kind='bar')
-plt.title("TSA Eligibility Rate by Gross Income Level")
-plt.xlabel("Gross Income Category")
-plt.ylabel("TSA Eligibility Rate")
-plt.xticks(rotation=45)
-plt.tight_layout()
-plt.show()
+#plt.title("TSA Eligibility Rate by Gross Income Level")
+#plt.xlabel("Gross Income Category")
+#plt.ylabel("TSA Eligibility Rate")
+#plt.xticks(rotation=45)
+#plt.tight_layout()
+#plt.show()
 
 """This chart shows how TSA eligibility varies across income categories. Lower-income groups tend to show higher eligibility rates, which suggests that income level may influence access to TSA assistance. This makes sense because households with limited financial resources may have more difficulty accessing alternative temporary shelter options, making them more likely to qualify for FEMA support.
 
